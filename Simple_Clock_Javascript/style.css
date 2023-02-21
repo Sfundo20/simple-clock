@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+:root {
+  --rotation: 0;
+  --background: 200;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: hsl(var(--background), 20%, 20%);
+}
+
+.card {
+  height: 600px;
+  width: 600px;
+  background-color: hsl(var(--background), 20%, 20%);
+  border: 10px solid hsl(var(--background), 70%, 70%);
+  display: grid;
+  place-content: center;
+  gap: 50px;
+}
+.card .digital-container {
+  width: 100%;
+  padding: 10px;
+}
+.card .digital-container .digital-clock {
+  font-size: 1.7em;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid hsl(var(--background), 70%, 70%);
+  color: hsl(var(--background), 70%, 70%);
+}
+.clock-container .clock {
+  width: 300px;
+  height: 300px;
+  background-color: hsl(var(--background), 20%, 20%);
+  border-radius: 50%;
+  border: 5px solid hsl(var(--background), 70%, 70%);
+  position: relative;
+}
+.clock .number {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 2em;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  color: hsl(var(--background), 70%, 70%);
+}
+.clock .number1 {
+  --rotation: 30deg;
+}
+.clock .number2 {
+  --rotation: 60deg;
+}
+.clock .number3 {
+  --rotation: 90deg;
+}
+.clock .number4 {
+  --rotation: 120deg;
+}
+.clock .number5 {
+  --rotation: 150deg;
+}
+.clock .number6 {
+  --rotation: 180deg;
+}
+.clock .number7 {
+  --rotation: 210deg;
+}
+.clock .number8 {
+  --rotation: 240deg;
+}
+.clock .number9 {
+  --rotation: 270deg;
+}
+.clock .number10 {
+  --rotation: 300deg;
+}
+.clock .number11 {
+  --rotation: 330deg;
+}
+.clock .number12 {
+  --rotation: 360deg;
+}
+
+.clock::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  background-color: #000;
+  border: 1px solid #fff;
+  z-index: 10;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.clock .hand.second {
+  width: 2px;
+  height: 45%;
+  background-color: red;
+}
+.clock .hand.minute {
+  width: 5px;
+  height: 40%;
+  background-color: black;
+}
+.clock .hand.hour {
+  width: 7px;
+  height: 35%;
+  background-color: black;
+}
+
+.clock .day-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.day-container .day {
+  text-align: center;
+  color: hsl(var(--background), 70%, 70%);
+}
